@@ -82,7 +82,7 @@ function App() {
           fullWidth
         />
       </div>
-      <span>How fast do you want to read?</span>
+      <span>How fast do you want to read? (time per word)</span>
       <div className="flex gap-3 items-center justify-center">
         <Slider
           min={50}
