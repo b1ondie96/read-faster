@@ -60,6 +60,18 @@ function App() {
   };
   return (
     <main className="p-8 flex flex-col gap-4">
+      <div className="flex items-center justify-center gap-4">
+        <h1 className="font-semibold text-lg">
+          Paste anything you want to read faster
+        </h1>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={async () => setInput(await navigator.clipboard.readText())}
+        >
+          Paste
+        </Button>
+      </div>
       <div className="flex flex-col gap-4">
         <TextField
           onChange={(e) => setInput(e.target.value)}
@@ -95,14 +107,17 @@ function App() {
           }}
         />
       </div>
-
       <div className="flex items-center justify-center flex-col px-52 py-5 bg-slate-700 rounded-lg">
         <span className="text-neutral-100 font-bold text-xl">
           {words[wordIndex]}
         </span>
       </div>
-      <Button onClick={handleButtonClick} variant="contained">
-        {isPlaying ? "pause" : "play"}
+      <Button
+        color={isPlaying ? "warning" : "success"}
+        onClick={handleButtonClick}
+        variant="contained"
+      >
+        {isPlaying ? "pause" : "read"}
       </Button>
     </main>
   );
